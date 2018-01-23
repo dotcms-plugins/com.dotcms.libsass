@@ -3,9 +3,10 @@
 
 
 ## OS-X 
+```
 brew install libsass
 brew install sassc
-
+```
 ## Linux
 mkdir /opt/sass  
 cd /opt/sass  
