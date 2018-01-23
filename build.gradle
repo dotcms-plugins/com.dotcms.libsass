@@ -1,0 +1,45 @@
+plugins {
+    id 'biz.aQute.bnd.builder' version '3.3.0'
+}
+
+sourceCompatibility = '1.8'
+version = '0.1'
+
+repositories {
+    mavenCentral()
+    maven { url "http://repo.dotcms.com/artifactory/libs-release" }
+    maven { url "http://repo.dotcms.com/artifactory/libs-snapshot-local" }
+}
+
+dependencies {
+    compile ('com.dotcms:dotcms:4.2.1') { transitive = true }
+
+    	compile 'io.bit3:jsass:5.5.4'
+}
+
+jar {
+	manifest {
+	    attributes (
+			'Bundle-Activator': 'com.dotmarketing.osgi.servlet.Activator',
+			'DynamicImport-Package' : '*',
+			'Import-Package': '''
+					javax.servlet.*,
+					org.osgi.service.http.context,
+					org.osgi.*,
+					com.dotmarketing.util.*,
+					com.dotmarketing.filters.*
+
+				''',
+			'Export-Package': '''
+				org.osgi.service.http.context,
+				io.bit3.jsass.*
+
+			'''
+		)
+	}
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.0.2'
+}
