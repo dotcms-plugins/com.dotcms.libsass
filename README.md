@@ -1,5 +1,6 @@
-# com.dotcms.libsass
+# ~~com.dotcms.libsass~~
 
+This has been incorporated into the core dotCMS codebase
 
 
 ## OS-X 
